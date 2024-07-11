@@ -33,4 +33,4 @@ if __name__ == "__main__":
     if len(argv) != 2:
         print("Usage: ./0-gather_data_from_an_API.py <employee_id>")
     else:
-        get_employee_todos(int(argv[1]))
+        get_employee_todos(argv[1])
