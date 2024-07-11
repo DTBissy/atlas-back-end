@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This was a doozy"""
-import requests
 import csv
+import requests
 from sys import argv
 
 
