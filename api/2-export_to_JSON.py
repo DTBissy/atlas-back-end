@@ -25,12 +25,14 @@ def get_employee_todos(employee_id):
         "completed": i.get("completed"),
         "username": usernames
         } for i in completed]}
-
-    formatted = {str(employee_id): data}
+    
 
     with open("{}.json".format(employee_id), "w") as f:
-       json.dump(formatted, f)
+        json.dump(data, f)
 
 
 if __name__ == "__main__":
-    get_employee_todos(employee_id=argv[1])
+    if len(argv) != 2:
+        print("Usage: ./0-gather_data_from_an_API.py <employee_id>")
+    else:
+            get_employee_todos(int(argv[1]))
