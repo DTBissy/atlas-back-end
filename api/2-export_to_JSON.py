@@ -21,7 +21,7 @@ def get_employee_todos(employee_id):
     completed = [i for i in todos if i.get("completed")]
 
     data = {employee_id: [{
-        "tasks": i.get("title"),
+        "task": i.get("title"),
         "completed": i.get("completed"),
         "username": usernames
         } for i in completed]}
