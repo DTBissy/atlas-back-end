@@ -16,7 +16,7 @@ def get_employee_todos(employee_id):
     usernames = users.get("username")
     todos = todo.json()
     csv_file_name = "{}.csv".format(employee_id)
-    # print(site, users, todos, names)
+    # print(site, todos, usernames)
 
     completed = [i for i in todos if i.get("completed")]
 
@@ -29,8 +29,8 @@ def get_employee_todos(employee_id):
     with open(csv_file_name, mode='w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for i in todos:
-            writer.writerow([i.get('userId'), i.get('username'),
-                             i.get('title'), i.get('completed')])
+            writer.writerow([employee_id, usernames,
+                             i.get('completed'), i.get('title')])
 
 
 if __name__ == "__main__":
