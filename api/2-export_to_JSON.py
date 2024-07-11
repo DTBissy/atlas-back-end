@@ -25,12 +25,13 @@ def get_employee_todos(employee_id):
         "completed": i.get("completed"),
         "username": usernames
         } for i in completed]}
-    
+ 
     formatted = json.dumps({str(employee_id): data})
 
     with open("{}.json".format(employee_id), "w") as f:
         f.write(formatted)
         f.close()
+
 
 if __name__ == "__main__":
     get_employee_todos(employee_id=argv[1])
