@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""This was a doozy"""
 import requests
 from sys import argv
 
