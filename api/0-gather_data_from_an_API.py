@@ -28,4 +28,4 @@ def get_employee_todos(employee_id):
 
 
 if __name__ == "__main__":
-    get_employee_todos(employee_id=argv[1])
+    get_employee_todos(int(employee_id=argv[1]))
