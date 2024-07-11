@@ -32,5 +32,6 @@ def get_employee_todos(employee_id):
             writer.writerow([i.get('userId'), i.get('title'),
                              i.get('completed')])
 
+
 if __name__ == "__main__":
     get_employee_todos(employee_id=argv[1])
