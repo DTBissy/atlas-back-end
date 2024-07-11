@@ -24,7 +24,7 @@ def get_employee_todos(employee_id):
         "task": i.get('title'),
         "completed": i.get('completed'),
         "username": usernames
-        } for i in completed]}
+        } for i in todos]}
     with open("{}.json".format(employee_id), "w") as f:
         json.dump(data, f)
 
