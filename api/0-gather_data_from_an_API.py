@@ -1,27 +1,14 @@
-#!/usr/bin/python3
-"""This is a flask implemantation"""
-
-from flask import Flask, request, jsonify
 import requests
+from sys import argv
 
-app = Flask(__name__)
-
-@app.route('/employe/<int:employee_id>')
-def get_employee(employee_id):
-    """ This functions returns employee id and returns 
-    their todo list"""
-    url = 'https://jsonplaceholder.typicode.com/todos/1'
-
-    response = requests.get(url)
-    data = response.json()
-    employee_name = data.get('title')
-    tasks = data.get('completed')
+def get_employee_todos(employee_id):
+    """Stuff"""
     
-    data = {
-        "employee_id": employee_id,
-        "employee_name": employee_name,
-        "tasks": tasks
-    }
+    site = "https://jsonplaceholder.typicode.com/"
+    user = requests.get(site + "users/{}".format(employee_id))
+    todos = requests.get(site + "todos?userId={}".format(employee_id))
+    print(site, user, todos)
 
-    return jsonify(data)
 
+if __name__ == "__main__":
+    get_employee_todos(employee_id=argv[1])
