@@ -21,8 +21,8 @@ def get_employee_todos(employee_id):
     completed = [i for i in todos if i.get("completed")]
 
     data = {employee_id: [{
-        "task": i.get("title"),
-        "completed": i.get("completed"),
+        "task": i.get('title'),
+        "completed": i.get('completed'),
         "username": usernames
         } for i in completed]}
     with open("{}.json".format(employee_id), "w") as f:
