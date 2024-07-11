@@ -29,8 +29,8 @@ def get_employee_todos(employee_id):
     with open(csv_file_name, mode='w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for i in todos:
-            writer.writerow([i.get('userId'), i.get('title'),
-                             i.get('completed')])
+            writer.writerow([i.get('userId'), i.get('username'),
+                             i.get('title'), i.get('completed')])
 
 
 if __name__ == "__main__":
