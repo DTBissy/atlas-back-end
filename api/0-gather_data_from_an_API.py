@@ -20,11 +20,12 @@ def get_employee_todos(employee_id):
     all_todos = len(todos)
     done_todos = len(completed)
 
-    print("Employee {} is done with tasks({}/{}):"\
+    print("Employee {} is done with tasks({}/{}):"
           .format(names, done_todos, all_todos))
 
     for i in completed:
         print("\t {}".format(i.get("title")))
+
 
 if __name__ == "__main__":
     get_employee_todos(employee_id=argv[1])
