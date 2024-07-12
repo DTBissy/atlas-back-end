@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""This script collects tasks from all employees and exports them in JSON format."""
+"""This script collects tasks from all employees
+and exports them in JSON format."""
 import json
 import requests
 from sys import argv
@@ -27,7 +28,8 @@ def get_all_employee_todos():
         todos = todos_response.json()
 
         # Organize todos under the user's ID in the all_tasks dictionary
-        all_tasks[user_id] = [{"username": username, "task": i.get('title'), "completed": i.get('completed')} for i in todos]
+        all_tasks[user_id] = [{"username": username, "task": i.get('title'),
+                                "completed": i.get('completed')} for i in todos]
     
     return all_tasks
 
