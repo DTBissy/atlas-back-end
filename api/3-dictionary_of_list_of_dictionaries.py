@@ -9,8 +9,6 @@ from sys import argv
 def get_all_employee_todos():
     """Fetches and organizes todos for all employees."""
     site = "https://jsonplaceholder.typicode.com/"
-
-    site = "https://jsonplaceholder.typicode.com/"
     # Fetch all users
     users_response = requests.get(site + "users")
     users = users_response.json()
