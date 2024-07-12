@@ -27,8 +27,8 @@ def get_all_employee_todos():
 
         # Organize todos under the user's ID in the all_tasks dictionary
         all_tasks[user_id] = [{"username": username, "task": i.get('title'),
-                                "completed": i.get('completed')} for i in todos]
-    
+                               "completed": i.get('completed')} for i in todos]
+
     return all_tasks
 
 
@@ -37,6 +37,7 @@ def save_to_json(all_tasks):
     filename = "todo_all_employees.json"
     with open(filename, "w") as file:
         json.dump(all_tasks, file)
+
 
 if __name__ == "__main__":
     all_tasks = get_all_employee_todos()
