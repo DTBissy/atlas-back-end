@@ -31,5 +31,6 @@ def get_employee_todos(employee_id):
     print(progress_message)
     print("\n".join(completed_task_titles))
 
+
 if __name__ == "__main__":
     get_employee_todos(employee_id=argv[1])
