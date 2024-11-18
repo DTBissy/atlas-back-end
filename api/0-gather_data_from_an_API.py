@@ -1,33 +1,31 @@
 #!/usr/bin/python3
-"""This was a doozy"""
-import json
+"""This module defines a script that connects to an API"""
 import requests
-from sys import argv
+import sys
 
 
-def get_employee_todos(employee_id):
-    """Stuff"""
+def employee_todo_list(employee_id):
+    """This function displays todo list progress"""
 
-    site = "https://jsonplaceholder.typicode.com/"
-    user = site + "users/{}".format(employee_id)
-    todo = site + "todos/"
+    site_url = "https://jsonplaceholder.typicode.com/"
+    employee_url = f"{site_url}/users/{employee_id}"
+    todo_url = f"{site_url}/todos"
 
-    users = requests.get(user).json()
-    usernames = users['name']
-    todos = requests.get(todo, params={"userId": user}).json()
+    employee_data = requests.get(employee_url).json()
+    employee_name = employee_data['name']
+    todo_list = requests.get(todo_url, params={"userId": employee_id}).json()
 
-    complete_todo = [t["title"] for t in todos if t["completed"]]
-    total_todos = len(todos)
-    done = len(complete_todo)
+    completed_todos = [t["title"] for t in todo_list if t["completed"]]
+    total_todos = len(todo_list)
+    total_done = len(completed_todos)
 
-    print (
-        f"\nEmployee {usernames} is done with tasks({done}/{total_todos}):"
-    )
+    print("Employee {} is done with tasks({}/{}):"
+          .format(employee_name, total_done, total_todos))
 
-    for dos in complete_todo:
-        print("\t{}".format(dos))
+    for todo in completed_todos:
+        print(f"\t {todo}")
 
 
 if __name__ == "__main__":
-    get_employee_todos(employee_id=argv[1])
 
+    employee_todo_list(int(sys.argv[1]))
